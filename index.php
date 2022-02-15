@@ -54,6 +54,12 @@
                 echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["Nama"] . "</td><td>" . $row["Alamat"] . "</td><td>" . $row["Jabatan"] . "</td></tr>";
             };
             echo "</table>";
+
+            $counter = "SELECT COUNT(*) FROM users";
+            $data = $conn->query($counter);
+
+            $data->fetch_assoc();
+            echo "Total data: " . $data["COUNT(*)"];
         }
 
         mysqli_close($conn);
